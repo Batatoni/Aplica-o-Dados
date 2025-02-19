@@ -1,0 +1,13 @@
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\bin\Debug\Aplicação banco de dados.exe.config
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\bin\Debug\Aplicação banco de dados.exe
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\bin\Debug\Aplicação banco de dados.pdb
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\bin\Debug\Aplicação banco de dados.xml
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\obj\Debug\Aplicação banco de dados.vbproj.AssemblyReference.cache
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\obj\Debug\Aplicação_banco_de_dados.Config.resources
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\obj\Debug\Aplicação_banco_de_dados.Main.resources
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\obj\Debug\Aplicação_banco_de_dados.Resources.resources
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\obj\Debug\Aplicação banco de dados.vbproj.GenerateResource.cache
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\obj\Debug\Aplicação banco de dados.vbproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\obj\Debug\Aplicação banco de dados.exe
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\obj\Debug\Aplicação banco de dados.xml
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\obj\Debug\Aplicação banco de dados.pdb
