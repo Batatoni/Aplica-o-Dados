@@ -3,21 +3,17 @@ Imports System.Data.SqlClient
 Imports System.Data.Common
 
 Public Class Main
-    Public Dim Val As Boolean
-        
-    
-    
+    Public Dim Val As Boolean   
+ 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        
-       
-              
+                  
     End Sub
     
     Sub initdatagrid()
 
 
             dim conn As DbConnection = Class1.connection.con(Val)
-            Dim sql As String = "SELECT * FROM Clientes"
+            Dim sql As String = "SELECT * FROM Clientes ORDER BY id desc"
 
             Dim command As DbCommand = Class1.connection.cmd(Val, sql, conn)
             conn.Open
@@ -46,8 +42,7 @@ Public Class Main
     Private Sub Config_Click(sender As Object, e As EventArgs) Handles Config.Click
         Dim config As new Config()
         config.Owner = Me
-        config.ShowDialog()
-       
+        config.ShowDialog()       
         Val = config.db
         
     End Sub
@@ -69,7 +64,7 @@ Public Class Main
                 MessageBox.Show("Erro de conexâo")
             End If
         Else
-            MessageBox.Show("Selecione uma linha")
+            MessageBox.Show("Nenhuma linha selecionada")
         End If
         
 
@@ -84,66 +79,66 @@ Public Class Main
                                 "Values (@param1, @param2, @param3, @param4, @param5)"
 
             Dim command As DbCommand  = Class1.connection.cmd(Val, sql, conn)
+            
         
             conn.Open
-            If TypeOf command Is OleDbCommand then
-                Dim cmd As OleDbCommand = DirectCast(command, OleDbCommand)
-                cmd.Parameters.AddWithValue("@param1", TextBox1.Text)
-                cmd.Parameters.AddWithValue("@param2", TextBox2.Text)
-                cmd.Parameters.AddWithValue("@param3", TextBox3.Text)
-                cmd.Parameters.AddWithValue("@param4", TextBox4.Text)
-                cmd.Parameters.AddWithValue("@param5", TextBox5.Text)
-            Else
-                Dim cmd As SqlCommand = DirectCast(command, SqlCommand)
-                cmd.Parameters.AddWithValue("@param1", TextBox1.Text)
-                cmd.Parameters.AddWithValue("@param2", TextBox2.Text)
-                cmd.Parameters.AddWithValue("@param3", TextBox3.Text)
-                cmd.Parameters.AddWithValue("@param4", TextBox4.Text)
-                cmd.Parameters.AddWithValue("@param5", TextBox5.Text)
-            End If
+            
+            InsertValuesInData(command)
             
             command.ExecuteNonQuery
             conn.Close
+            TextBox6.Text = ""
             initdatagrid
+            TextBox6.Text = DataGridView1.Rows(0).Cells(0).Value
         Else
             MessageBox.Show("Erro de conexâo")
         End If
     End Sub
 
+    Private Sub InsertValuesInData(cmd As DbCommand)
+        
+        If TypeOf cmd Is OleDbCommand then
+            Dim c As OleDbCommand = DirectCast(cmd, OleDbCommand)
+            c.Parameters.AddWithValue("@param1", TextBox1.Text)
+            c.Parameters.AddWithValue("@param2", TextBox2.Text)
+            c.Parameters.AddWithValue("@param3", TextBox4.Text)
+            c.Parameters.AddWithValue("@param4", TextBox3.Text)
+            c.Parameters.AddWithValue("@param5", TextBox5.Text)
+            Else
+                Dim c As SqlCommand = DirectCast(cmd, SqlCommand)
+                c.Parameters.AddWithValue("@param1", TextBox1.Text)
+                c.Parameters.AddWithValue("@param2", TextBox2.Text)
+                c.Parameters.AddWithValue("@param3", TextBox4.Text)
+                c.Parameters.AddWithValue("@param4", TextBox3.Text)
+                c.Parameters.AddWithValue("@param5", TextBox5.Text)
+        End If
+
+    End Sub
+    
+    
+    
     Private Sub Sair_Click(sender As Object, e As EventArgs) Handles Sair.Click
         Me.Close
     End Sub
-
+    
     Private Sub Save_Click(sender As Object, e As EventArgs) Handles Save.Click
           
         If Class1.connection.validator = True Then
             If TextBox6.Text <> "" Then
-            Dim conn As DbConnection = Class1.connection.con(Val)
-            Dim sql As String = "UPDATE Clientes SET Nome = @param1, Ender = @param2, Cel = @param3, Tel = @param4, Email = @param5 WHERE id = "& TextBox6.Text &" "
+                Dim conn As DbConnection = Class1.connection.con(Val)
+                Dim sql As String = "UPDATE Clientes SET Nome = @param1, Ender = @param2, Cel = @param3, Tel = @param4, Email = @param5 WHERE id = "& TextBox6.Text &" "
 
-            Dim command As DbCommand = Class1.connection.cmd(Val, sql, conn)
-            conn.Open
-            If TypeOf command Is OleDbCommand then
-                Dim cmd As OleDbCommand = DirectCast(command, OleDbCommand)
-                cmd.Parameters.AddWithValue("@param1", TextBox1.Text)
-                cmd.Parameters.AddWithValue("@param2", TextBox2.Text)
-                cmd.Parameters.AddWithValue("@param3", TextBox3.Text)
-                cmd.Parameters.AddWithValue("@param4", TextBox4.Text)
-                cmd.Parameters.AddWithValue("@param5", TextBox5.Text)
+                Dim command As DbCommand = Class1.connection.cmd(Val, sql, conn)
+                conn.Open
+                
+                InsertValuesInData(command)
+
+                command.ExecuteNonQuery
+                conn.Close
+                initdatagrid
             Else
-                Dim cmd As SqlCommand = DirectCast(command, SqlCommand)
-                cmd.Parameters.AddWithValue("@param1", TextBox1.Text)
-                cmd.Parameters.AddWithValue("@param2", TextBox2.Text)
-                cmd.Parameters.AddWithValue("@param3", TextBox3.Text)
-                cmd.Parameters.AddWithValue("@param4", TextBox4.Text)
-                cmd.Parameters.AddWithValue("@param5", TextBox5.Text)
+                MessageBox.Show("nenhuma linha selecionada, para carregar os valores de uma linha click duas vezez da primeria coluna da linha desejada")
             End If
-            command.ExecuteNonQuery
-            conn.Close
-            initdatagrid
-                Else
-                MessageBox.Show("nenhuma linha carregada")
-                End If
         Else
             MessageBox.Show("Erro de conexâo")
         End If
@@ -155,8 +150,8 @@ Public Class Main
             TextBox6.Text = DataGridView1.SelectedRows(0).Cells(0).Value.ToString
             TextBox1.Text = DataGridView1.SelectedRows(0).Cells(1).Value.ToString
             TextBox2.Text = DataGridView1.SelectedRows(0).Cells(2).Value.ToString
-            TextBox3.Text = DataGridView1.SelectedRows(0).Cells(3).Value.ToString
-            TextBox4.Text = DataGridView1.SelectedRows(0).Cells(4).Value.ToString
+            TextBox4.Text = DataGridView1.SelectedRows(0).Cells(3).Value.ToString
+            TextBox3.Text = DataGridView1.SelectedRows(0).Cells(4).Value.ToString
             TextBox5.Text = DataGridView1.SelectedRows(0).Cells(5).Value.ToString
             End If        
         End If

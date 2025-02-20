@@ -32,15 +32,15 @@ Partial Class Config
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.Acess = New System.Windows.Forms.TabPage()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.TextData = New System.Windows.Forms.TextBox()
+        Me.TextUser = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.Textip = New System.Windows.Forms.TextBox()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.TextSenha = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextData = New System.Windows.Forms.TextBox()
-        Me.TextUser = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout
         Me.Acess.SuspendLayout
         Me.TabPage2.SuspendLayout
@@ -59,6 +59,7 @@ Partial Class Config
         Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
         Me.TextBox2.Location = New System.Drawing.Point(19, 115)
         Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
         Me.TextBox2.Size = New System.Drawing.Size(329, 23)
         Me.TextBox2.TabIndex = 3
         '
@@ -95,11 +96,12 @@ Partial Class Config
         '
         'Button2
         '
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
         Me.Button2.Location = New System.Drawing.Point(313, 45)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(34, 23)
         Me.Button2.TabIndex = 7
-        Me.Button2.Text = "Button2"
+        Me.Button2.Text = "..."
         Me.Button2.UseVisualStyleBackColor = true
         '
         'TabControl1
@@ -147,49 +149,6 @@ Partial Class Config
         Me.TabPage2.Text = "SQL"
         Me.TabPage2.UseVisualStyleBackColor = true
         '
-        'Textip
-        '
-        Me.Textip.Font = New System.Drawing.Font("Microsoft Sans Serif", 10!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.Textip.Location = New System.Drawing.Point(21, 58)
-        Me.Textip.Name = "Textip"
-        Me.Textip.Size = New System.Drawing.Size(140, 23)
-        Me.Textip.TabIndex = 8
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(21, 178)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(140, 37)
-        Me.Button3.TabIndex = 12
-        Me.Button3.Text = "Save"
-        Me.Button3.UseVisualStyleBackColor = true
-        '
-        'TextSenha
-        '
-        Me.TextSenha.Font = New System.Drawing.Font("Microsoft Sans Serif", 10!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.TextSenha.Location = New System.Drawing.Point(21, 128)
-        Me.TextSenha.Name = "TextSenha"
-        Me.TextSenha.Size = New System.Drawing.Size(140, 23)
-        Me.TextSenha.TabIndex = 9
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = true
-        Me.Label3.Location = New System.Drawing.Point(18, 102)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(38, 13)
-        Me.Label3.TabIndex = 11
-        Me.Label3.Text = "Senha"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = true
-        Me.Label4.Location = New System.Drawing.Point(18, 33)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(17, 13)
-        Me.Label4.TabIndex = 10
-        Me.Label4.Text = "IP"
-        '
         'TextData
         '
         Me.TextData.Font = New System.Drawing.Font("Microsoft Sans Serif", 10!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
@@ -223,6 +182,50 @@ Partial Class Config
         Me.Label6.Size = New System.Drawing.Size(57, 13)
         Me.Label6.TabIndex = 15
         Me.Label6.Text = "DataTable"
+        '
+        'Textip
+        '
+        Me.Textip.Font = New System.Drawing.Font("Microsoft Sans Serif", 10!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Textip.Location = New System.Drawing.Point(21, 58)
+        Me.Textip.Name = "Textip"
+        Me.Textip.Size = New System.Drawing.Size(140, 23)
+        Me.Textip.TabIndex = 8
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(21, 178)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(140, 37)
+        Me.Button3.TabIndex = 12
+        Me.Button3.Text = "Save"
+        Me.Button3.UseVisualStyleBackColor = true
+        '
+        'TextSenha
+        '
+        Me.TextSenha.Font = New System.Drawing.Font("Microsoft Sans Serif", 10!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.TextSenha.Location = New System.Drawing.Point(21, 128)
+        Me.TextSenha.Name = "TextSenha"
+        Me.TextSenha.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
+        Me.TextSenha.Size = New System.Drawing.Size(140, 23)
+        Me.TextSenha.TabIndex = 9
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = true
+        Me.Label3.Location = New System.Drawing.Point(18, 102)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(38, 13)
+        Me.Label3.TabIndex = 11
+        Me.Label3.Text = "Senha"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = true
+        Me.Label4.Location = New System.Drawing.Point(18, 33)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(17, 13)
+        Me.Label4.TabIndex = 10
+        Me.Label4.Text = "IP"
         '
         'Config
         '
