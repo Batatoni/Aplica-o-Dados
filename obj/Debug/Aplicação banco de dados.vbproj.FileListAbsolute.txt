@@ -11,3 +11,24 @@ C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dado
 C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\obj\Debug\Aplicação banco de dados.exe
 C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\obj\Debug\Aplicação banco de dados.xml
 C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\obj\Debug\Aplicação banco de dados.pdb
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\bin\Debug\stdole.dll
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\obj\Debug\Aplicação banco de dados.vbproj.CopyComplete
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\bin\Debug\AxShockwaveFlashObjects.dll
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\bin\Debug\ShockwaveFlashObjects.dll
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\obj\Debug\Aplicação_banco_de_dados.Form1.resources

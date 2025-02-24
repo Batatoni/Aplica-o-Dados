@@ -156,4 +156,12 @@ Public Class Main
             End If        
         End If
     End Sub
+
+    Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
+       
+        Dim relatorio As New Form1
+        relatorio.Val = Val
+        relatorio.ShowDialog
+
+    End Sub
 End Class

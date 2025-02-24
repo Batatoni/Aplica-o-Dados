@@ -44,4 +44,8 @@ Public Class Config
         Class1.connection.connn = "Data Source= "& server &";Initial Catalog= "& banco &";User ID= "& id &" ;Password= "& password  &" ;"
         testaconexao()
     End Sub
+
+    Private Sub Config_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class
