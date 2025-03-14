@@ -1,6 +1,7 @@
 ﻿Imports System.Data.Common
 Imports System.Data.SqlClient
 Imports System.Data.OleDb
+Imports ApplicationBlocks.Data
 
 Public Class Config   
     Public Dim db As Boolean
@@ -11,15 +12,15 @@ Public Class Config
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
-        Class1.connection.connn = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & TextBox1.Text & ";Jet OLEDB:Database Password=" & TextBox2.Text & ";"
+        connection.connn = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" & TextBox1.Text & ";Jet OLEDB:Database Password=" & TextBox2.Text & ";"
         db = True
         testaconexao()
     End Sub
     Private Sub testaconexao()
-        Dim con As DbConnection = Class1.connection.con(db)
+        Dim con As  IDbConnection = connection.con(db)
         Try
             con.Open
-            Class1.connection.validator = True
+            connection.validator = True
             Me.Close
         Catch ex As Exception
             MessageBox.Show("Erro :" + ex.Message)
@@ -41,7 +42,7 @@ Public Class Config
         Dim id As String = TextUser.Text
         Dim password As String = TextSenha.Text
         db = False
-        Class1.connection.connn = "Data Source= "& server &";Initial Catalog= "& banco &";User ID= "& id &" ;Password= "& password  &" ;"
+        connection.connn = "Data Source= "& server &";Initial Catalog= "& banco &";User ID= "& id &" ;Password= "& password  &" ;"
         testaconexao()
     End Sub
 

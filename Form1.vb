@@ -11,15 +11,15 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim con As DbConnection = Class1.connection.con(Val)
+        Dim con As IDbConnection = connection.con(Val)
         Dim Sql As String = "SELECT * FROM Clientes"
-        Dim command As DbCommand = Class1.connection.cmd(Val, Sql, con)
-        Dim adap As DbDataAdapter = Class1.connection.adapter(Val, command)
+       
+
         Dim ds As DataSet
 
         con.Open()
-        ds = New DataSet
-        adap.Fill(ds, "Clientes")
+
+        ds = connection.m_dbHelper.ExecuteDataset(con, CommandType.Text, sql)
         
         Dim rpt As New CrystalReport1
         rpt.SetDataSource(ds)

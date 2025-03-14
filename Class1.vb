@@ -1,18 +1,28 @@
 ﻿Imports System.Data.Common
 Imports System.Data.OleDb
 Imports System.Data.SqlClient
+Imports ApplicationBlocks.Data
 
-Public Class Class1
-  
-    Class connection
+    Public Class connection
         Public shared Property connn As String
         Public Shared Property validator As Boolean = False
+        Public Shared Property m_dbHelper As IDBHelper
 
          shared public Function con(ByVal wich As Boolean) As DbConnection
+            Dim m_dbConn As IDbConnection
+            
             If (wich = True)
-                Return new OleDbConnection(connn)
-                Else
-                Return New SqlConnection(connn)
+                Dim OleDBDbHelper As New OleDBDbHelper
+                m_dbHelper = OleDBDbHelper
+                m_dbConn = oleDBDbHelper.NewConnection(connn)
+               
+                Return m_dbConn
+               
+            Else
+                Dim sqlDbHelper As New SqlDbHelper
+                m_dbHelper = sqlDbHelper
+                m_dbConn = sqlDbHelper.NewConnection(connn)
+                Return m_dbConn
             End If
         End Function
 
@@ -32,4 +42,3 @@ Public Class Class1
             End If
         End Function
     End Class
-End Class

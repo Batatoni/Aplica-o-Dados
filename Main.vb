@@ -1,9 +1,12 @@
 ﻿Imports System.Data.OleDb
 Imports System.Data.SqlClient
 Imports System.Data.Common
+Imports ApplicationBlocks.Data
 
 Public Class Main
     Public Dim Val As Boolean   
+    Public Dim ds As DataSet 
+    Public Dim conn As IDbConnection
  
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
                   
@@ -11,19 +14,15 @@ Public Class Main
     
     Sub initdatagrid()
 
-
-            dim conn As DbConnection = Class1.connection.con(Val)
+            Dim dss As DataSet
+            conn = connection.con(Val)
             Dim sql As String = "SELECT * FROM Clientes ORDER BY id desc"
-
-            Dim command As DbCommand = Class1.connection.cmd(Val, sql, conn)
+            
             conn.Open
-            
-            Dim adapter As DbDataAdapter = Class1.connection.adapter(Val, command)
-            
-            Dim datatable As New DataTable()
-            adapter.fill(datatable)
+           
+           dss = connection.m_dbHelper.ExecuteDataset(conn, CommandType.Text, sql)
 
-            DataGridView1.DataSource = datatable
+            DataGridView1.DataSource = dss.Tables(0)
             DataGridView1.Columns(0).Visible = False
             conn.Close
        
@@ -31,7 +30,7 @@ Public Class Main
     End Sub
 
     Private Sub Att_Click(sender As Object, e As EventArgs) Handles Att.Click
-         If Class1.connection.validator = True Then            
+         If connection.validator = True Then            
             initdatagrid()
       Else
             MessageBox.Show("Erro de conexâo")
@@ -49,15 +48,16 @@ Public Class Main
 
     Private Sub Del_Click(sender As Object, e As EventArgs) Handles Del.Click
         If DataGridView1.SelectedRows.Count>0 Then
-            If Class1.connection.validator = True Then
+            If connection.validator = True Then
+
                 dim id As Integer 
                 id = DataGridView1.SelectedRows(0).Cells(0).Value
-                Dim conn As  DbConnection = Class1.connection.con(Val)
+
                 Dim sql As String = "DELETE FROM Clientes WHERE id = "& id &""
 
-                Dim command As DbCommand = Class1.connection.cmd(Val, sql, conn)
+
                 conn.Open
-                command.ExecuteNonQuery
+                Dim affected = connection.m_dbHelper.ExecuteNonQuery(conn, CommandType.Text,sql)
                 conn.Close
                 initdatagrid
             Else
@@ -72,48 +72,36 @@ Public Class Main
 
     Private Sub Novo_Click(sender As Object, e As EventArgs) Handles Novo.Click
         
-        If Class1.connection.validator = True Then
+        If connection.validator = True Then
         
-            Dim conn As DbConnection = Class1.connection.con(Val)
             Dim sql As String = "INSERT INTO Clientes (Nome, Ender, Cel, Tel, Email)" &
                                 "Values (@param1, @param2, @param3, @param4, @param5)"
 
-            Dim command As DbCommand  = Class1.connection.cmd(Val, sql, conn)
-            
-        
             conn.Open
             
-            InsertValuesInData(command)
-            
-            command.ExecuteNonQuery
+           Dim params As IDataParameter() =  InsertValuesInData()
+           Dim affected = connection.m_dbHelper.ExecuteNonQuery(conn, CommandType.Text, sql, params)
+
             conn.Close
+            initdatagrid()
+
             TextBox6.Text = ""
-            initdatagrid
             TextBox6.Text = DataGridView1.Rows(0).Cells(0).Value
         Else
             MessageBox.Show("Erro de conexâo")
         End If
     End Sub
 
-    Private Sub InsertValuesInData(cmd As DbCommand)
-        
-        If TypeOf cmd Is OleDbCommand then
-            Dim c As OleDbCommand = DirectCast(cmd, OleDbCommand)
-            c.Parameters.AddWithValue("@param1", TextBox1.Text)
-            c.Parameters.AddWithValue("@param2", TextBox2.Text)
-            c.Parameters.AddWithValue("@param3", TextBox4.Text)
-            c.Parameters.AddWithValue("@param4", TextBox3.Text)
-            c.Parameters.AddWithValue("@param5", TextBox5.Text)
-            Else
-                Dim c As SqlCommand = DirectCast(cmd, SqlCommand)
-                c.Parameters.AddWithValue("@param1", TextBox1.Text)
-                c.Parameters.AddWithValue("@param2", TextBox2.Text)
-                c.Parameters.AddWithValue("@param3", TextBox4.Text)
-                c.Parameters.AddWithValue("@param4", TextBox3.Text)
-                c.Parameters.AddWithValue("@param5", TextBox5.Text)
-        End If
+    Private function InsertValuesInData()
 
-    End Sub
+       Dim param1 = connection.m_dbHelper.NewParameter("@param1", DbType.String, CObj(TextBox1.Text))
+       Dim param2 = connection.m_dbHelper.NewParameter("@param2", DbType.String, CObj(TextBox2.Text))
+       Dim param3 = connection.m_dbHelper.NewParameter("@param3", DbType.String, CObj(TextBox4.Text))
+       Dim param4 = connection.m_dbHelper.NewParameter("@param4", DbType.String, CObj(TextBox3.Text))
+       Dim param5 = connection.m_dbHelper.NewParameter("@param5", DbType.String, CObj(TextBox5.Text))
+       Return New IDataParameter() {param1, param2, param3, param4, param5}
+
+    End function
     
     
     
@@ -123,17 +111,17 @@ Public Class Main
     
     Private Sub Save_Click(sender As Object, e As EventArgs) Handles Save.Click
           
-        If Class1.connection.validator = True Then
+        If connection.validator = True Then
             If TextBox6.Text <> "" Then
-                Dim conn As DbConnection = Class1.connection.con(Val)
+
                 Dim sql As String = "UPDATE Clientes SET Nome = @param1, Ender = @param2, Cel = @param3, Tel = @param4, Email = @param5 WHERE id = "& TextBox6.Text &" "
 
-                Dim command As DbCommand = Class1.connection.cmd(Val, sql, conn)
                 conn.Open
                 
-                InsertValuesInData(command)
+              Dim params As IDataParameter() =  InsertValuesInData()
+              Dim affected = connection.m_dbHelper.ExecuteNonQuery(conn, CommandType.Text, sql, params)
 
-                command.ExecuteNonQuery
+
                 conn.Close
                 initdatagrid
             Else

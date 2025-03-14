@@ -32,3 +32,5 @@ C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dado
 C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\bin\Debug\CrystalDecisions.Windows.Forms.dll
 C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\bin\Debug\ShockwaveFlashObjects.dll
 C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\obj\Debug\Aplicação_banco_de_dados.Form1.resources
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\bin\Debug\ApplicationBlocks.Data.dll
+C:\Users\admin\source\repos\Aplicação banco de dados\Aplicação banco de dados\bin\Debug\ApplicationBlocks.Data.xml
